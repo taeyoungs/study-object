@@ -3,13 +3,13 @@ import { Ticket } from './Ticket';
 
 export class Bag {
   #amount: number;
-  #invitation: Invitation;
-  #ticket: Ticket;
+  #invitation: Invitation | null;
+  #ticket: Ticket | null;
 
-  constructor(amount: number, invitation: Invitation, ticket: Ticket) {
+  constructor(amount: number, invitation?: Invitation) {
     this.#amount = amount;
-    this.#invitation = invitation;
-    this.#ticket = ticket;
+    this.#invitation = invitation ?? null;
+    this.#ticket = null;
   }
 
   hasInvitation() {
