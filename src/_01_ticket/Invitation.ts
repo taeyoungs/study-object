@@ -1,4 +1,4 @@
-class Invitation {
+export class Invitation {
   #when: Date;
 
   constructor(when: Date) {
