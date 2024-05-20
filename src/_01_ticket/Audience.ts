@@ -1,4 +1,5 @@
 import { Bag } from './Bag';
+import { Ticket } from './Ticket';
 
 export class Audience {
   #bag: Bag;
@@ -9,5 +10,9 @@ export class Audience {
 
   get bag() {
     return this.#bag;
+  }
+
+  buy(ticket: Ticket) {
+    return 0;
   }
 }
