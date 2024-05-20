@@ -9,24 +9,13 @@ export class TicketSeller {
   }
 
   sellTo(audience: Audience) {
-    if (audience.bag.hasInvitation()) {
-      const ticket = this.#ticketOffice.getTicket();
+    const ticket = this.#ticketOffice.getTicket();
 
-      if (!ticket) {
-        throw new Error('매진되었습니다.');
-      }
-
-      audience.bag.ticket = ticket;
-    } else {
-      const ticket = this.#ticketOffice.getTicket();
-
-      if (!ticket) {
-        throw new Error('매진되었습니다.');
-      }
-
-      audience.bag.minusAmount(ticket.fee);
-      this.#ticketOffice.plusAmount(ticket.fee);
-      audience.bag.ticket = ticket;
+    if (!ticket) {
+      throw new Error('매진되었습니다.');
     }
+
+    const fee = audience.buy(ticket);
+    this.#ticketOffice.plusAmount(fee);
   }
 }

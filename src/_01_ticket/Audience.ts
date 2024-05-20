@@ -8,11 +8,14 @@ export class Audience {
     this.#bag = bag;
   }
 
-  get bag() {
-    return this.#bag;
-  }
-
   buy(ticket: Ticket) {
-    return 0;
+    if (this.#bag.hasInvitation()) {
+      this.#bag.ticket = ticket;
+      return 0;
+    }
+
+    this.#bag.ticket = ticket;
+    this.#bag.plusAmount(ticket.fee);
+    return ticket.fee;
   }
 }
