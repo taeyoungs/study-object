@@ -1,3 +1,4 @@
+import { Audience } from './Audience';
 import { Ticket } from './Ticket';
 
 export class TicketOffice {
@@ -9,7 +10,17 @@ export class TicketOffice {
     this.#tickets = tickets;
   }
 
-  getTicket() {
+  sellTicketTo(audience: Audience) {
+    const ticket = this.getTicket();
+
+    if (!ticket) {
+      throw new Error('매진되었습니다.');
+    }
+
+    this.plusAmount(audience.buy(ticket));
+  }
+
+  private getTicket() {
     return this.#tickets.shift();
   }
 
@@ -17,7 +28,7 @@ export class TicketOffice {
     this.#amount -= amount;
   }
 
-  plusAmount(amount: number) {
+  private plusAmount(amount: number) {
     this.#amount += amount;
   }
 }

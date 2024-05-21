@@ -9,13 +9,6 @@ export class TicketSeller {
   }
 
   sellTo(audience: Audience) {
-    const ticket = this.#ticketOffice.getTicket();
-
-    if (!ticket) {
-      throw new Error('매진되었습니다.');
-    }
-
-    const fee = audience.buy(ticket);
-    this.#ticketOffice.plusAmount(fee);
+    this.#ticketOffice.sellTicketTo(audience);
   }
 }
