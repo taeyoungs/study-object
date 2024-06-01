@@ -1,4 +1,5 @@
 import { Customer } from './Customer';
+import { Reservation } from './Reservation';
 
 export class Screening {
   #movie: Movie;
