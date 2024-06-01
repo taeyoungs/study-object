@@ -1,7 +1,7 @@
-import { DiscountCondition } from './DiscountCondition';
+import { DiscountCondition } from '../DiscountCondition/DiscountCondition';
 import { DiscountPolicy } from './DiscountPolicy';
-import { Money } from './Money';
-import { Screening } from './Screening';
+import { Money } from '../Money';
+import { Screening } from '../Screening';
 
 export abstract class DefaultDiscountPolicy implements DiscountPolicy {
   #conditions: DiscountCondition[];

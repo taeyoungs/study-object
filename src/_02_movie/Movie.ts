@@ -1,4 +1,7 @@
-import { DiscountPolicy } from './DiscountPolicy';
+import { BigDecimal } from './BigDecimal';
+import { PeriodCondition } from './DiscountCondition/PeriodCondition';
+import { DiscountPolicy } from './DiscountPolicy/DiscountPolicy';
+import { PercentDiscountPolicy } from './DiscountPolicy/PercentDiscountPolicy';
 import { Money } from './Money';
 import { Screening } from './Screening';
 
@@ -27,3 +30,12 @@ export class Movie {
     return this.#fee.minus(this.#discountPolicy.calculateDiscountAmount(screening));
   }
 }
+
+/**
+new Movie(
+  '샘플',
+  1000,
+  new Money(BigDecimal.valueOf(1000)),
+  new PercentDiscountPolicy(10, [new PeriodCondition(0, new Date(), new Date())])
+);
+ */

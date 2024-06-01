@@ -1,6 +1,6 @@
 import { compareAsc } from 'date-fns';
 
-import { DiscountCondition } from './DiscountCondition';
+import { DiscountCondition } from './DiscountCondition/DiscountCondition';
 import { Screening } from './Screening';
 
 type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
