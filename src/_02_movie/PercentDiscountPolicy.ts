@@ -1,6 +1,7 @@
 import { DiscountCondition } from './DiscountCondition';
 import { DiscountPolicy } from './DiscountPolicy';
 import { Money } from './Money';
+import { Screening } from './Screening';
 
 export class PercentDiscountPolicy extends DiscountPolicy {
   #percent: number;
@@ -11,6 +12,6 @@ export class PercentDiscountPolicy extends DiscountPolicy {
   }
 
   protected getDiscountAmount(screening: Screening): Money {
-    return screening.movieFee.times(this.#percent);
+    return screening.getMovieFee().times(this.#percent);
   }
 }

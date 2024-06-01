@@ -1,6 +1,7 @@
 import { DiscountCondition } from './DiscountCondition';
 import { DiscountPolicy } from './DiscountPolicy';
 import { Money } from './Money';
+import { Screening } from './Screening';
 
 export class AmountDiscountPolicy extends DiscountPolicy {
   #discountAmount: Money;

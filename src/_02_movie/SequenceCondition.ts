@@ -1,4 +1,5 @@
 import { DiscountCondition } from './DiscountCondition';
+import { Screening } from './Screening';
 
 // 순번 할인 조건
 export class SequenceCondition implements DiscountCondition {

@@ -1,8 +1,9 @@
 import { compareAsc } from 'date-fns';
 
 import { DiscountCondition } from './DiscountCondition';
+import { Screening } from './Screening';
 
-type DayOfWeek = '0' | '1' | '2' | '3' | '4' | '5' | '6';
+type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
 // 기간 할인 조건
 export class PeriodCondition implements DiscountCondition {
@@ -21,9 +22,9 @@ export class PeriodCondition implements DiscountCondition {
   // 그렇지 않은 경우에는 false를 반환한다.
   isSatisfiedBy(screening: Screening) {
     return (
-      screening.startTime.getDay() === this.#dayOfWeek &&
-      compareAsc(this.#startTime, screening.startTime) <= 0 &&
-      compareAsc(this.#endTime, screening.startTime) >= 0
+      screening.getStartTime().getDay() === this.#dayOfWeek &&
+      compareAsc(this.#startTime, screening.getStartTime()) <= 0 &&
+      compareAsc(this.#endTime, screening.getStartTime()) >= 0
     );
   }
 }

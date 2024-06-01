@@ -1,4 +1,5 @@
 import { Customer } from './Customer';
+import { Movie } from './Movie';
 import { Reservation } from './Reservation';
 
 export class Screening {
@@ -21,11 +22,11 @@ export class Screening {
   }
 
   getMovieFee() {
-    this.#movie.fee;
+    return this.#movie.fee;
   }
 
   calculateFee(audienceCount: number) {
-    return this.#movie.calcalateFee(this).times(audienceCount);
+    return this.#movie.calculateMovieFee(this).times(audienceCount);
   }
 
   reserve(customer: Customer, audienceCount: number) {
