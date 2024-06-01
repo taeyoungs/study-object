@@ -20,6 +20,10 @@ export class Movie {
   }
 
   calculateMovieFee(screening: Screening) {
+    if (this.#discountPolicy === null) {
+      return this.#fee;
+    }
+
     return this.#fee.minus(this.#discountPolicy.calculateDiscountAmount(screening));
   }
 }
